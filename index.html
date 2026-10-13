@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="sl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Forma</title>
+  <meta name="theme-color" content="#000000">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Forma">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="./icon-180.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap">
+  <style>html, body { background: #000; color: #f3f3f4; }</style>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="app">
+    <header class="top" id="top">
+      <div class="top-row">
+        <div class="brand">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <circle cx="12" cy="12" r="8.5" stroke="#f3f3f4" stroke-width="3" stroke-dasharray="39.7 13.7" stroke-linecap="round"/>
+            <circle cx="17.9" cy="5.9" r="2" fill="#8fd3ff"/>
+          </svg>
+          Forma
+        </div>
+        <div class="datenav" id="datenav">
+          <button class="icon-btn" id="prevDay" aria-label="Prejšnji dan">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+          </button>
+          <button class="date" id="dateLabel" aria-label="Skoči na danes">Danes</button>
+          <button class="icon-btn" id="nextDay" aria-label="Naslednji dan">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="view" id="view-hrana" data-view="hrana"></section>
+      <section class="view" id="view-gibanje" data-view="gibanje" hidden></section>
+      <section class="view" id="view-fitnes" data-view="fitnes" hidden></section>
+      <section class="view" id="view-profil" data-view="profil" hidden></section>
+    </main>
+  </div>
+
+  <nav class="tabs" aria-label="Glavni meni">
+    <div class="tabs-inner" role="tablist">
+      <button class="tab" role="tab" data-tab="hrana" aria-selected="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3v8m-3-8v5a3 3 0 0 0 6 0V3M7 11v10"/><path d="M17 21V3c-2.2 1.2-3.5 3.8-3.5 7 0 2 1 3 3.5 3"/></svg>
+        Hrana
+      </button>
+      <button class="tab" role="tab" data-tab="gibanje" aria-selected="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 20c-2 0-3-1.6-3-3.5S6 13 6 11s1-4 3-4 2.5 2 2.5 4-1 3-1 5.5S10 20 8 20Z"/><path d="M16 15c-2 0-2.5-1.5-2.5-3.5S14.5 8 14.5 6 15.5 2 17.5 2 20 4 20 6s-1 3-1 5.5S18 15 16 15Z"/></svg>
+        Gibanje
+      </button>
+      <button class="tab" role="tab" data-tab="fitnes" aria-selected="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 6.5v11M17.5 6.5v11M3.5 9v6M20.5 9v6M6.5 12h11"/></svg>
+        Fitnes
+      </button>
+      <button class="tab" role="tab" data-tab="profil" aria-selected="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>
+        Profil
+      </button>
+    </div>
+  </nav>
+
+  <input type="file" id="mealCamera" accept="image/*" capture="environment" hidden>
+  <input type="file" id="mealGallery" accept="image/*" hidden>
+  <input type="file" id="exVideo" accept="video/*" capture="environment" hidden>
+  <input type="file" id="exVideoGallery" accept="video/*" hidden>
+  <input type="file" id="exPhoto" accept="image/*" capture="environment" hidden>
+  <input type="file" id="bodyPhoto" accept="image/*" hidden>
+  <input type="file" id="restoreFile" accept=".json,application/json" hidden>
+
+  <div class="toast-wrap" id="toasts" aria-live="polite"></div>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
